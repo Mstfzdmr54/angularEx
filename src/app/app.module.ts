@@ -3,11 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { NgTemplateComponent } from './ng-template/ng-template.component';
+import { InputOutputComponent } from './input-output/input-output.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NgTemplateComponent
+    NgTemplateComponent,
+    InputOutputComponent
   ],
   imports: [
     BrowserModule

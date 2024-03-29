@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angularEx';
+
+  constructor() {
+    setTimeout(() => {
+      this.title = '123'
+    }, 2000);
+  }
+
+
+  receiveMsg(msg: string) {
+    alert(msg)
+  }
 }
