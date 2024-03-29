@@ -1,1 +1,14 @@
-<p>ng-template works!</p>
+
+
+
+<ng-container  [ngTemplateOutlet]="template1" [ngTemplateOutletContext]="{data: 'template1', msg: 'msg1'}"></ng-container>
+<ng-container  [ngTemplateOutlet]="template1" [ngTemplateOutletContext]="{data: 'template2',  msg: 'msg2'}"></ng-container>
+
+
+
+
+<ng-template #template1 let-data="data" let-msg="msg">
+    <h1>{{data}}</h1>
+    <h2>{{msg}}</h2>
+</ng-template>
+
