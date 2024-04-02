@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { NgTemplateComponent } from './ng-template/ng-template.component';
 import { InputOutputComponent } from './input-output/input-output.component';
 import { ServiceExampleComponent } from './service-example/service-example.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { MyHttpInterceptor } from './services/myHttpInterceptor';
 
 @NgModule({
   declarations: [
@@ -14,9 +16,16 @@ import { ServiceExampleComponent } from './service-example/service-example.compo
     ServiceExampleComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MyHttpInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
