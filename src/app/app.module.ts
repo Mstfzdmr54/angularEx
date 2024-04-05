@@ -7,6 +7,12 @@ import { InputOutputComponent } from './input-output/input-output.component';
 import { ServiceExampleComponent } from './service-example/service-example.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MyHttpInterceptor } from './services/myHttpInterceptor';
+import {RouterModule} from "@angular/router";
+
+import {register} from 'swiper/element/bundle';
+
+register()
+
 
 @NgModule({
   declarations: [
@@ -17,7 +23,10 @@ import { MyHttpInterceptor } from './services/myHttpInterceptor';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot([
+      { path: 'sw', loadChildren: () => import('./swiper-example/swiper-example.module').then(m => m.SwiperExampleModule) }
+    ])
   ],
   providers: [
     {
